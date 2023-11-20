@@ -14,6 +14,8 @@ const SignUp = () => {
 
     const a = document?.querySelector("#loch");
     a?.click();
+
+    setEmail("");
   }
 
   return (
