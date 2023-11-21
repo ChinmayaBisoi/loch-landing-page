@@ -13,6 +13,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body > #root{
-  @apply h-screen w-screen;
+.carousel {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.carousel-container.transitioning {
+  transition: none; /* Disable transition during the item change */
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-button:hover {
+  background-color: #555;
 }

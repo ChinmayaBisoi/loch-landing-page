@@ -1,42 +1,28 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import SignUp from "./components/SignUp";
 import "./App.css";
+import SignUp from "./components/SignUp";
+import GetNotified from "./components/GetNotified";
+import Carousel from "./components/Carousel";
+
+const mainBg = {
+  background:
+    "radial-gradient(92.19% 89.74% at 0% 91.27%, #1FA911 17.21%, #2F15D0 50.58%, rgb(0, 0, 0) 100%)",
+};
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="flex h-full text-grey-900">
-      <div className="grow">
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
-      <div className="lg:flex hidden">
-        <div className="flex items-center justify-center">
-          <div className="">
-            <SignUp />
+    <div className="flex bg-black text-white">
+      <div className="py-[62px]">
+        <div className="grid grid-cols-10 md:pl-[62px] p-4">
+          <div className="md:col-span-5 col-span-full">
+            <GetNotified />
+          </div>
+          <div className="md:col-span-5 col-span-full">
+            <Carousel />
           </div>
         </div>
+      </div>
+      <div className="md:flex hidden">
+        <SignUp />
       </div>
     </div>
   );
