@@ -29,8 +29,14 @@ function App() {
     setShowSignup(false);
   }
   return (
-    <div className="max-h-screen h-full w-full isolate">
-      <div className="min-w-0 min-h-0 flex h-full flex-grow bg-black text-white relative">
+    <div className="max-h-screen h-full w-full isolate text-white">
+      <div
+        style={{
+          background:
+            "radial-gradient(92.19% 89.74% at 0% 91.27%, #1FA911 17.21%, #2F15D0 50.58%, rgb(0, 0, 0) 100%)",
+        }}
+        className="min-w-0 min-h-0 flex h-full flex-grow relative"
+      >
         <main className="grow p-4 md:p-0 scroll-pt-4 overflow-auto lg:pr-[365px] relative">
           <button
             onClick={showSignupForMob}
@@ -68,28 +74,31 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="md:pr-[62] grid md:grid-cols-2 grid-cols-1 gap-y-12 md:mb-[22px] mb-12 ">
-              <img
-                src="cohorts1.svg"
-                className="w-full h-auto rounded-lg md:order-1 order-2"
-              />
-              <div className="md:pt-[17px] order-1 md:order-2">
-                <InfoCard
-                  wrapperCss="text-right flex flex-col items-end md:ml-auto"
-                  imgSrc="eye.svg"
-                  title="Watch what the whales are doing"
-                  subtitle="All whales are not equal. Know exactly what the whales impacting YOUR portfolio are doing."
+            <div className="md:pr-[62px]">
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-y-12 md:mb-[22px] mb-12 ">
+                <img
+                  src="cohorts1.svg"
+                  className="w-full h-auto rounded-lg md:order-1 order-2"
                 />
+                <div className="md:pt-[17px] order-1 md:order-2">
+                  <InfoCard
+                    wrapperCss="text-right flex flex-col items-end md:ml-auto"
+                    imgSrc="eye.svg"
+                    title="Watch what the whales are doing"
+                    subtitle="All whales are not equal. Know exactly what the whales impacting YOUR portfolio are doing."
+                  />
+                </div>
               </div>
             </div>
-            <Testimonials />
+            <div className="md:pr-[62px]">
+              <Testimonials />
+            </div>
           </div>
         </main>
         <div className="lg:flex bg-white hidden fixed h-screen items-center justify-center right-0">
           <SignUp />
         </div>
       </div>
-      <div className="flex bg-black text-white"></div>
     </div>
   );
 }

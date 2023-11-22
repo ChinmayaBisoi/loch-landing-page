@@ -133,7 +133,7 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
       >
         {cards.map((Card, index) => {
           return (
-            <div key={index} className={``}>
+            <div key={index} className={`flex`}>
               <Card />
             </div>
           );
