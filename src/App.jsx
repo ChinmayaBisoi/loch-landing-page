@@ -40,7 +40,7 @@ function App() {
         <main className="grow p-4 md:p-0 scroll-pt-4 overflow-auto lg:pr-[365px] relative">
           <button
             onClick={showSignupForMob}
-            className="fixed lg:hidden right-5 md:top-4 shadow-xl border-2 border-black bg-white text-black px-3 pb-2 pt-1 font-semibold hover:bg-gray-200 rounded-md"
+            className="fixed lg:hidden right-5 z-[50] md:top-4 shadow-xl border-2 border-black bg-white text-black px-3 pb-2 pt-1 font-semibold hover:bg-gray-200 rounded-md"
           >
             SignUp
           </button>

@@ -67,20 +67,18 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
         const newYPos = prevPosition.y + deltaY;
 
         if (newXPos > containerWidth - containerWidth * 0.35) {
-          return;
-          // {
-          //   x: 0,
-          //   y: prevPosition.y,
-          // };
+          return {
+            x: 0,
+            y: prevPosition.y,
+          };
         } else if (
           Math.abs(newXPos) >
           trackWidth + containerWidth - (trackWidth + containerWidth) * 0.35
         ) {
-          return;
-          //  {
-          //   x: 0,
-          //   y: prevPosition.y,
-          // };
+          return {
+            x: 0,
+            y: prevPosition.y,
+          };
         }
         return {
           x: newXPos,
@@ -104,61 +102,6 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
     setIsDragging(false);
   }
 
-  const handleTouchStart = (e) => {
-    if (!scrollOnDrag) return;
-
-    dragStartPoint.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
-    };
-    setIsDragging(true);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
-    const deltaX = e.touches[0].clientX - dragStartPoint.current.x;
-    const deltaY = e.touches[0].clientY - dragStartPoint.current.y;
-
-    const containerWidth = containerRef ? containerRef?.current.clientWidth : 0;
-
-    const trackWidth = trackRef ? trackRef?.current.clientWidth : 0;
-
-    setPosition((prevPosition) => {
-      const newXPos = prevPosition.x + deltaX;
-      const newYPos = prevPosition.y + deltaY;
-
-      if (newXPos > containerWidth - containerWidth * 0.35) {
-        return;
-        // {
-        //   x: 0,
-        //   y: prevPosition.y,
-        // };
-      } else if (
-        Math.abs(newXPos) >
-        trackWidth + containerWidth - (trackWidth + containerWidth) * 0.35
-      ) {
-        return;
-        //  {
-        //   x: 0,
-        //   y: prevPosition.y,
-        // };
-      }
-      return {
-        x: newXPos,
-        y: newYPos,
-      };
-    });
-
-    dragStartPoint.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
-    };
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
-
   return (
     <div
       ref={containerRef}
@@ -172,9 +115,6 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseOut={handleMouseOut}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
         style={scrollOnDrag ? { transform: `translate(${position.x}px` } : null}
         className={`flex gap-4 transform duration-500 ease-in-out scroll-smooth 
         ${scrollOnDrag ? "cursor-pointer" : ""}
