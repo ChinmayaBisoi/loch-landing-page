@@ -105,17 +105,19 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
   }
 
   const handleTouchStart = (e) => {
-    setStartX(e.touches[0].clientX);
-    dragStartPoint.current = { x: e.touches[0].clientX, y: 0 };
+    if (!scrollOnDrag) return;
+
+    dragStartPoint.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
     setIsDragging(true);
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging) return;
-
-    const currentX = e.touches[0].clientX;
-    const deltaX = currentX - startX;
-    const deltaY = 0;
+    const deltaX = e.touches[0].clientX - dragStartPoint.current.x;
+    const deltaY = e.touches[0].clientY - dragStartPoint.current.y;
 
     const containerWidth = containerRef ? containerRef?.current.clientWidth : 0;
 
@@ -136,7 +138,7 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
         trackWidth + containerWidth - (trackWidth + containerWidth) * 0.35
       ) {
         return;
-        // {
+        //  {
         //   x: 0,
         //   y: prevPosition.y,
         // };
@@ -147,7 +149,10 @@ const Carousel = ({ autoScroll = false, scrollOnDrag = false, items = [] }) => {
       };
     });
 
-    setStartX(currentX);
+    dragStartPoint.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
   };
 
   const handleTouchEnd = () => {
