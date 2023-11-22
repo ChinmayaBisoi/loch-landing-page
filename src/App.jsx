@@ -62,7 +62,7 @@ function App() {
               <div className="md:col-span-6 col-span-full">
                 <InfoCard
                   showLetterBorder
-                  imgSrc="bell1.svg"
+                  imgSrc="/bell1.svg"
                   title="Get notified when a highly correlated whale makes a move"
                   subtitle="Find out when a certain whale moves more than any preset amount on-chain
                 or when a dormant whale you care about becomes active."
@@ -83,7 +83,7 @@ function App() {
                 <div className="md:pt-[17px] order-1 md:order-2">
                   <InfoCard
                     wrapperCss="text-right flex flex-col items-end md:ml-auto"
-                    imgSrc="eye.svg"
+                    imgSrc="/eye.svg"
                     title="Watch what the whales are doing"
                     subtitle="All whales are not equal. Know exactly what the whales impacting YOUR portfolio are doing."
                   />
