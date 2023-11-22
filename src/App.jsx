@@ -62,7 +62,7 @@ function App() {
               <div className="md:col-span-6 col-span-full">
                 <InfoCard
                   showLetterBorder
-                  imgSrc="/bell1.svg"
+                  imgSrc="/bellnew.svg"
                   title="Get notified when a highly correlated whale makes a move"
                   subtitle="Find out when a certain whale moves more than any preset amount on-chain
                 or when a dormant whale you care about becomes active."
